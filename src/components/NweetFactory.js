@@ -77,15 +77,20 @@ const NweetFactory = ({ userObj }) => {
   return (
     <form onSubmit={onSubmit} className="factoryForm">
       <div className="factoryInput__container">
-        <input
-          className="factoryInput__input"
-          value={nweet}
-          onChange={onChange}
-          type="text"
-          placeholder="무슨 일이 일어나고 있나요?"
-          maxLength={120}
-        />
-        <input type="submit" value="&rarr;" className="factoryInput__arrow" />
+        <div className="factoryInput__row1">
+          <img
+            className="factoryInput__userprofile"
+            src={process.env.PUBLIC_URL + "/assets/ic_userprofile.png"}
+          />
+          <input
+            className="factoryInput__input"
+            value={nweet}
+            onChange={onChange}
+            type="text"
+            placeholder="무슨 일이 일어나고 있나요?"
+            maxLength={120}
+          />
+        </div>
       </div>
       <label htmlFor="attach-file" className="factoryInput__label">
         <span>사진 첨부</span>
@@ -101,20 +106,7 @@ const NweetFactory = ({ userObj }) => {
         }}
         ref={fileInput}
       />
-      {attachment && (
-        <div className="factoryForm__attachment">
-          <img
-            src={attachment}
-            style={{
-              backgroundImage: attachment,
-            }}
-          />
-          <div className="factoryForm__clear" onClick={onClearAttachment}>
-            <span>Remove</span>
-            <FontAwesomeIcon icon={faTimes} />
-          </div>
-        </div>
-      )}
+      {}
     </form>
   );
 };

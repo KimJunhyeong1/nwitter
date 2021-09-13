@@ -4,6 +4,7 @@ import Auth from "../routes/Auth";
 import Home from "../routes/home";
 import Navigation from "./Navigation";
 import Profile from "routes/Profile";
+import SignUpForm from "./SignUpForm";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -31,9 +32,14 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               </Route>
             </div>
           ) : (
-            <Route exact path="/">
-              <Auth />
-            </Route>
+            <>
+              <Route exact path="/">
+                <Auth refreshUser={refreshUser} />
+              </Route>
+              <Route exact path="/login">
+                <SignUpForm userObj={userObj} refreshUser={refreshUser} />
+              </Route>
+            </>
           )}
         </>
       </Switch>
