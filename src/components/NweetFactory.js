@@ -91,6 +91,10 @@ const NweetFactory = ({ userObj }) => {
             maxLength={120}
           />
         </div>
+        <div className="factoryInput__nweetButton">
+          <div></div>
+          <button>트윗하기</button>
+        </div>
       </div>
       <label htmlFor="attach-file" className="factoryInput__label">
         <span>사진 첨부</span>

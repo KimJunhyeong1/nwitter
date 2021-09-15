@@ -26,7 +26,15 @@ const Home = ({ userObj }) => {
   return (
     <div className="container">
       <NweetFactory userObj={userObj} />
-      <div style={{ marginTop: 30 }}>
+      <div
+        style={{
+          marginTop: 30,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {nweets.map((nweet) => (
           <Nweet
             key={nweet.id}
