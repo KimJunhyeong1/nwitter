@@ -8,42 +8,48 @@ import SignUpForm from "./SignUpForm";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
-    <Router>
-      {isLoggedIn && <Navigation userObj={userObj} />}
+    <div className="App">
+      {" "}
+      <Router>
+        {isLoggedIn && (
+          <header className="App__header">
+            {/* <Navigation userObj={userObj} /> */}
+          </header>
+        )}
 
-      <Switch>
-        <>
-          {isLoggedIn ? (
-            <div
-              style={{
-                maxWidth: 890,
-                width: "100%",
-                margin: "0 auto",
-                marginTop: 80,
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Route exact path="/">
-                <Home userObj={userObj} />
-              </Route>
-              <Route exact path="/profile">
-                <Profile userObj={userObj} refreshUser={refreshUser} />
-              </Route>
-            </div>
-          ) : (
-            <>
-              <Route exact path="/">
-                <Auth refreshUser={refreshUser} />
-              </Route>
-              <Route exact path="/login">
-                <SignUpForm userObj={userObj} refreshUser={refreshUser} />
-              </Route>
-            </>
-          )}
-        </>
-      </Switch>
-    </Router>
+        <Switch>
+          <main className="App__main">
+            {isLoggedIn ? (
+              <>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                  }}
+                >
+                  <Route exact path="/">
+                    <Home userObj={userObj} />
+                  </Route>
+                  <Route exact path="/profile">
+                    <Profile userObj={userObj} refreshUser={refreshUser} />
+                  </Route>
+                </div>
+                <div>asd</div>
+              </>
+            ) : (
+              <>
+                <Route exact path="/">
+                  <Auth refreshUser={refreshUser} />
+                </Route>
+                <Route exact path="/login">
+                  <SignUpForm userObj={userObj} refreshUser={refreshUser} />
+                </Route>
+              </>
+            )}
+          </main>
+        </Switch>
+      </Router>
+    </div>
   );
 };
 

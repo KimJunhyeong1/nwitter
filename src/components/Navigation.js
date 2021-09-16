@@ -6,8 +6,10 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = ({ userObj }) => {
   return (
-    <nav>
-      <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
+    <nav className="navigation__container">
+      <h2>홈</h2>
+
+      {/* <ul>
         <li>
           <Link to="/" style={{ marginRight: 10 }}>
             <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" />
@@ -33,7 +35,7 @@ const Navigation = ({ userObj }) => {
             </span>
           </Link>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 };

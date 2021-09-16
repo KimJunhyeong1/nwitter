@@ -32,16 +32,53 @@ form {
   width: 100%;
 }
 
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.App__header {
+  flex-grow: 1;
+  border-right: 0.1rem solid #f0f3f4;
+}
+
+.App__main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+}
+
 .nweet-input::placeholder {
   color: white;
   opacity: 0.9;
 }
 
 .container {
+  max-width: 600px;
   width: 100%;
-  max-width: 320px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+}
+.container__bar {
+  max-width: 600px;
+  border-bottom: 0.1rem solid #f0f3f4;
+}
+
+.container__bar h2 {
+  width: 1.188rem;
+  height: 1.438rem;
+  margin: 0.75rem 39.188rem 0.969rem 1.156rem;
+  font-family: Roboto;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #000;
 }
 
 .formInput {
@@ -96,8 +133,8 @@ form {
 .factoryForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
+  padding-left: 1.156rem;
 }
 
 .factoryInput__container {
@@ -111,12 +148,12 @@ form {
 .factoryInput__row1 {
   display: flex;
   flex-direction: row;
-  width: 100%;
 }
 
 .factoryInput__userprofile {
   width: 3.438rem;
   height: 3.438rem;
+  margin-top: 0.5rem;
   object-fit: contain;
 }
 
@@ -135,6 +172,7 @@ form {
   color: black;
 }
 .factoryInput__nweetButton {
+  margin-top: 1rem;
   display: flex;
   width: 100%;
 }
@@ -175,6 +213,13 @@ form {
   box-sizing: border-box;
 }
 
+.factoryInput__icons {
+  display: flex;
+  width: 12rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 4.5rem;
+}
 .factoryInput__label {
   color: #04aaff;
   cursor: pointer;
@@ -219,12 +264,14 @@ form {
 .nweet {
   margin-bottom: 20px;
   background-color: white;
-  width: 533px;
-  border-bottom: 0.5rem solid #f0f3f4;
+  border-bottom: 0.1rem solid #f0f3f4;
   position: relative;
   display: flex;
   flex-direction: column;
   color: rgba(0, 0, 0, 0.8);
+  padding-left: 1.156rem;
+  width: 100%;
+  max-width: 600px;
 }
 .nweet__column {
   width: 100%;
@@ -238,6 +285,18 @@ form {
   font-family: Roboto;
   font-size: 1rem;
   font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.56px;
+  text-align: left;
+  color: #000;
+}
+
+.nweet__column h4 {
+  margin-top: 0.438rem;
+  font-family: Roboto;
+  font-size: 0.9rem;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -610,4 +669,13 @@ form {
   object-fit: contain;
   border-radius: 26.5px;
   background-color: var(--activation-main-blue);
+}
+
+/* Navigation */
+
+.navigation__container {
+  display: flex;
+}
+
+.navigation__container h2 {
 }

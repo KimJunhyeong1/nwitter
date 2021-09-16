@@ -20,7 +20,6 @@ const Nweet = ({ nweetObj, isOwner }) => {
       }
     }
   };
-
   const toggleEditing = () => setEditing((prev) => !prev);
 
   const onSubmit = async (event) => {
@@ -69,7 +68,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
             </div>
             <div>
               {" "}
-              <h2>이름</h2>
+              <h2>{nweetObj.displayName}</h2>
               <h4>{nweetObj.text}</h4>
               {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} />}
             </div>

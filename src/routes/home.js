@@ -3,6 +3,7 @@ import { dbService, storageService } from "firebaseInstance";
 import { orderBy, collection, onSnapshot, query } from "firebase/firestore";
 import Nweet from "./Nweet";
 import NweetFactory from "components/NweetFactory";
+import Navigation from "components/Navigation";
 import { useHistory } from "react-router-dom";
 
 const Home = ({ userObj }) => {
@@ -25,6 +26,9 @@ const Home = ({ userObj }) => {
 
   return (
     <div className="container">
+      <div className="container__bar">
+        <h2>홈</h2>
+      </div>
       <NweetFactory userObj={userObj} />
       <div
         style={{
@@ -32,7 +36,9 @@ const Home = ({ userObj }) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "flex-start",
+          width: "100%",
+          maxWidth: "600px",
         }}
       >
         {nweets.map((nweet) => (

@@ -32,6 +32,7 @@ const NweetFactory = ({ userObj }) => {
         createdAt: Date.now(),
         creatorId: userObj.uid,
         attachmentUrl,
+        displayName: userObj.displayName,
       });
       console.log("Document written with ID:", docRef.id);
     } catch (error) {
@@ -91,26 +92,35 @@ const NweetFactory = ({ userObj }) => {
             maxLength={120}
           />
         </div>
+
         <div className="factoryInput__nweetButton">
-          <div></div>
+          <div className="factoryInput__icons">
+            {" "}
+            <label htmlFor="attach-file" className="factoryInput__label">
+              <img src={process.env.PUBLIC_URL + "/assets/ic_image.png"} />
+            </label>
+            <label htmlFor="attach-file" className="factoryInput__label">
+              <img src={process.env.PUBLIC_URL + "/assets/ic_gif.png"} />
+            </label>
+            <img src={process.env.PUBLIC_URL + "/assets/ic_gragh.png"} />
+            <img src={process.env.PUBLIC_URL + "/assets/ic_smile.png"} />
+            <img src={process.env.PUBLIC_URL + "/assets/ic_schedule.png"} />
+            <input
+              id="attach-file"
+              type="file"
+              accept="image/*"
+              onChange={onFileChange}
+              style={{
+                opacity: 0,
+                display: "none",
+              }}
+              ref={fileInput}
+            />
+            {}
+          </div>
           <button>트윗하기</button>
         </div>
       </div>
-      <label htmlFor="attach-file" className="factoryInput__label">
-        <span>사진 첨부</span>
-        <FontAwesomeIcon icon={faPlus} />
-      </label>
-      <input
-        id="attach-file"
-        type="file"
-        accept="image/*"
-        onChange={onFileChange}
-        style={{
-          opacity: 0,
-        }}
-        ref={fileInput}
-      />
-      {}
     </form>
   );
 };
