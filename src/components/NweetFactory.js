@@ -83,14 +83,24 @@ const NweetFactory = ({ userObj }) => {
             className="factoryInput__userprofile"
             src={process.env.PUBLIC_URL + "/assets/ic_userprofile.png"}
           />
-          <input
-            className="factoryInput__input"
-            value={nweet}
-            onChange={onChange}
-            type="text"
-            placeholder="무슨 일이 일어나고 있나요?"
-            maxLength={120}
-          />
+          <div className="factoryInput__inputDiv">
+            <input
+              className="factoryInput__input"
+              value={nweet}
+              onChange={onChange}
+              type="text"
+              placeholder="무슨 일이 일어나고 있나요?"
+              maxLength={120}
+            />
+            {attachment && (
+              <div className="factoryInput__image">
+                <img src={attachment} alt="attachment_image"></img>
+                <div className="factoryForm__clear" onClick={onClearAttachment}>
+                  <FontAwesomeIcon icon={faTimes} />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="factoryInput__nweetButton">
@@ -118,7 +128,11 @@ const NweetFactory = ({ userObj }) => {
             />
             {}
           </div>
-          <button>트윗하기</button>
+          {nweet || attachment ? (
+            <button className="factoryInput__fillButton">트윗하기</button>
+          ) : (
+            <button className="factoryInput__button">트윗하기</button>
+          )}
         </div>
       </div>
     </form>

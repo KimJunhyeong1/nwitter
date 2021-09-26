@@ -10,13 +10,20 @@ import {
   QuerySnapshot,
   getDocs,
 } from "firebase/firestore";
+import LogOut from "components/LogOut";
 
 const Profile = ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+  const [popup, setPopup] = useState(false);
   const onLogOutClick = () => {
-    signOut(authService);
-    history.push("/");
+    if (popup === true) {
+      setPopup(false);
+    } else {
+      setPopup(true);
+    }
+    // signOut(authService);
+    // history.push("/");
   };
 
   const getMyNweets = async () => {
@@ -51,6 +58,7 @@ const Profile = ({ refreshUser, userObj }) => {
       });
       refreshUser();
       setNewDisplayName("");
+      history.push("/");
     }
   };
 
@@ -60,27 +68,31 @@ const Profile = ({ refreshUser, userObj }) => {
 
   return (
     <div className="container">
-      <form onSubmit={onSubmit} className="profileForm">
-        <input
-          onChange={onChange}
-          type="text"
-          autoFocus
-          placeholder="이름"
-          value={newDisplayName}
-          className="formInput"
-        />
-        <input
-          type="submit"
-          value="프로필 업데이트"
-          className="formBtn"
-          style={{
-            marginTop: 10,
-          }}
-        />
-      </form>
-      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
-        로그아웃
-      </span>
+      <div className="profile">
+        {" "}
+        <form onSubmit={onSubmit} className="profileForm">
+          <input
+            onChange={onChange}
+            type="text"
+            autoFocus
+            placeholder="이름"
+            value={newDisplayName}
+            className="formInput"
+          />
+          <input
+            type="submit"
+            value="프로필 업데이트"
+            className="formBtn"
+            style={{
+              marginTop: 10,
+            }}
+          />
+        </form>
+        <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+          로그아웃
+        </span>
+      </div>
+      {setPopup ? <LogOut popup={popup} setPopup={setPopup} /> : ""}
     </div>
   );
 };

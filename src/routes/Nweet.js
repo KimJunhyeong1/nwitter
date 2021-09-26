@@ -70,7 +70,11 @@ const Nweet = ({ nweetObj, isOwner }) => {
               {" "}
               <h2>{nweetObj.displayName}</h2>
               <h4>{nweetObj.text}</h4>
-              {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} />}
+              {nweetObj.attachmentUrl && (
+                <div className="nweet__image">
+                  <img src={nweetObj.attachmentUrl} />
+                </div>
+              )}
             </div>
           </div>
           <div></div>

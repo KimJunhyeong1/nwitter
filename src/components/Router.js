@@ -5,6 +5,7 @@ import Home from "../routes/home";
 import Navigation from "./Navigation";
 import Profile from "routes/Profile";
 import SignUpForm from "./SignUpForm";
+import SideBar from "./SideBar";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -13,7 +14,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
       <Router>
         {isLoggedIn && (
           <header className="App__header">
-            {/* <Navigation userObj={userObj} /> */}
+            <SideBar userObj={userObj} />
           </header>
         )}
 
@@ -34,7 +35,6 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                     <Profile userObj={userObj} refreshUser={refreshUser} />
                   </Route>
                 </div>
-                <div>asd</div>
               </>
             ) : (
               <>

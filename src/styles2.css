@@ -39,8 +39,10 @@ form {
 }
 
 .App__header {
+  display: flex;
   flex-grow: 1;
   border-right: 0.1rem solid #f0f3f4;
+  justify-content: flex-end;
 }
 
 .App__main {
@@ -60,6 +62,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  border-right: 0.1rem solid #f0f3f4;
 }
 .container__bar {
   max-width: 600px;
@@ -111,16 +114,27 @@ form {
 
 /* Profile Page */
 
-.profileForm {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-  padding-bottom: 30px;
-  width: 100%;
+.profile {
+  width: 600px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+}
+
+.profileForm {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  align-self: center;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 300px;
 }
 
 .logOut {
-  margin-top: 50px;
+  align-self: center;
+  width: 80%;
+  margin-top: 10px;
 }
 
 /* Nwitter Factory */
@@ -132,6 +146,7 @@ form {
 
 .factoryForm {
   display: flex;
+  border-bottom: 0.1rem solid #f0f3f4;
   flex-direction: column;
   align-items: flex-start;
   padding-left: 1.156rem;
@@ -140,14 +155,16 @@ form {
 .factoryInput__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .factoryInput__row1 {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .factoryInput__userprofile {
@@ -157,10 +174,13 @@ form {
   object-fit: contain;
 }
 
+.factoryInput__inputDiv {
+  margin: 0.625rem 12.313rem 1.5rem 0.813rem;
+}
+
 .factoryInput__input {
   width: 16.75rem;
   height: 2.625rem;
-  margin: 0.625rem 12.313rem 1.5rem 0.813rem;
   font-family: Roboto;
   font-size: 1.375rem;
   font-weight: 500;
@@ -171,13 +191,31 @@ form {
   text-align: left;
   color: black;
 }
+
+.factoryInput__image {
+  margin-top: 12px;
+  width: 500px;
+  height: 283px;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+}
+
+.factoryInput__image img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
 .factoryInput__nweetButton {
-  margin-top: 1rem;
+  margin-top: 0.1rem;
+  padding-right: 1.25rem;
   display: flex;
   width: 100%;
 }
 
-.factoryInput__nweetButton button {
+.factoryInput__button {
   margin-left: auto;
   width: 5.813rem;
   height: 2.75rem;
@@ -198,6 +236,31 @@ form {
   letter-spacing: normal;
   text-align: center;
   color: #fff;
+  border-style: solid;
+}
+
+.factoryInput__fillButton {
+  margin-left: auto;
+  width: 5.813rem;
+  height: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 26.5px;
+  border-color: #4da0eb;
+  background-color: #4da0eb;
+  font-family: Roboto;
+  font-size: 0.969rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  border-style: solid;
 }
 
 .factoryInput__arrow {
@@ -236,21 +299,21 @@ form {
   justify-content: center;
 }
 
-.factoryForm__attachment img {
-  height: 80px;
-  width: 80px;
-  border-radius: 40px;
-}
-
 .factoryForm__clear {
-  color: #04aaff;
+  color: white;
   cursor: pointer;
   text-align: center;
-}
-
-.factoryForm__clear span {
-  margin-right: 10px;
-  font-size: 12px;
+  padding-top: 8px;
+  top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  border-width: 1px;
+  border-radius: 9999px;
+  border-style: solid;
+  background-color: rgba(15, 20, 25, 0.75);
+  border: rgba(15, 20, 25, 0.75);
+  position: absolute;
 }
 
 /* Nweet */
@@ -280,7 +343,6 @@ form {
 }
 
 .nweet__column h2 {
-  width: 2.875rem;
   height: 1.188rem;
   font-family: Roboto;
   font-size: 1rem;
@@ -325,6 +387,22 @@ form {
 
 .nweet__actions span:first-child {
   margin-right: 10px;
+}
+
+.nweet__image {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 500px;
+  height: 283px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.nweet__image img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 /* Auth */
@@ -574,6 +652,7 @@ form {
 }
 
 .login_page {
+  width: 100%;
   height: 100vh;
   background-color: #fff;
   display: flex;
@@ -678,4 +757,218 @@ form {
 }
 
 .navigation__container h2 {
+}
+
+/* SideBar */
+
+.sideBar__container {
+  width: 275px;
+  height: 100%;
+  position: fixed;
+}
+
+.sideBar__container h2 {
+  font-family: Roboto;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  text-align: left;
+  color: #000;
+  margin-left: 1.438rem;
+  padding-top: 5px;
+}
+
+.sideBar__col {
+  height: 100%;
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sideBar__icons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.sideBar__logo {
+}
+
+.sideBar__nav {
+  height: 24rem;
+  margin-top: 1.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sideBar__profile {
+  width: 275px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.563rem;
+}
+
+.sideBar__user {
+  display: flex;
+  flex-direction: row;
+}
+
+.sideBar__user img {
+  width: 2.938rem;
+  height: 2.938rem;
+  object-fit: contain;
+}
+
+.sideBar__userName {
+  display: flex;
+  flex-direction: column;
+}
+
+.sideBar__userName {
+  margin-left: 0.813rem;
+}
+
+.sideBar__userName span:first-child {
+  width: 6.063rem;
+  height: 1.313rem;
+  font-family: Roboto;
+  font-size: 1.125rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.81px;
+  text-align: left;
+  color: #000;
+}
+
+.sideBar__userName span:last-child {
+  width: 10.063rem;
+  height: 1.25rem;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: -0.56px;
+  text-align: left;
+  color: #586572;
+  margin-top: 0.125rem;
+}
+
+.logOut__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1.131rem;
+  padding-right: 1.131rem;
+}
+
+.logOut__container img {
+  width: 3.75rem;
+  height: 3rem;
+  background-color: #fff;
+}
+
+.logOut__message1 {
+  font-family: Roboto;
+  margin-top: 1.125rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.7px;
+  text-align: left;
+  color: #000;
+}
+
+.logOut__message2 {
+  width: 19.375rem;
+  margin-top: 1.625rem;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: -0.16px;
+  text-align: center;
+  color: #586572;
+}
+
+.logOut__buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout_cannel_button {
+  width: 9.313rem;
+  height: 2.813rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 26.5px;
+  background-color: #f0f3f4;
+  border-color: #f0f3f4;
+  font-family: Roboto;
+  font-size: 0.969rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000;
+  border-style: solid;
+}
+
+.logOut__button {
+  width: 9.313rem;
+  height: 2.813rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 0 0.875rem;
+  border-radius: 26.5px;
+  background-color: #4da0eb;
+  border-color: #4da0eb;
+  border-style: solid;
+  font-family: Roboto;
+  font-size: 0.969rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+
+.logout_comfirm_button {
+  margin-left: 10px;
 }
